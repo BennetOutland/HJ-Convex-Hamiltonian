@@ -62,9 +62,25 @@ end
 #+========================================================================================+
 
 # Basic test
-evader = Player(f_E, O_E, nothing, lcons=[-1.0, 1.0], ucons=[-1.0, 1.0], sense=:max)
-pursuer = Player(f_P, O_P, 2.0, lcons=[-0.1], ucons=[0.1])
+evader = Player(f_E, O_E, 2, 2, nothing, lcons=[-1.0, 1.0], ucons=[-1.0, 1.0], sense=:max)
+pursuer = Player(f_P, O_P, 3, 1, 2.0, lcons=[-0.1], ucons=[0.1])
 game = DifferentialGame([evader, pursuer], [[3.0, 3.0], [0.0, 0.0, 0.0]], (0.0, 1.0))
 
-# solver = Viscosity(...)
-# sol = solve(game, solver)
+
+
+#+========================================================================================+
+#                                       SOLVER
+#+========================================================================================+
+
+# Get it into the cannonical form TODO
+
+"""
+Define the dynamics in the "stacked" dynamical format
+"""
+function dynamics_stacked(game, x, u, p, t)
+
+    return 42
+end
+
+x_test = zeros(5)
+u_test = ones(3)
